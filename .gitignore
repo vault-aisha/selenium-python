@@ -1,0 +1,52 @@
+# ========================
+# Python
+# ========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pyt
+*.pyo
+*.env
+*.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ========================
+# VSCode
+# ========================
+.vscode/
+
+# ========================
+# Pytest / reports
+# ========================
+reports/
+*.log
+*.html
+*.xml
+allure-results/
+
+# ========================
+# OS generated files
+# ========================
+.DS_Store
+Thumbs.db
+
+# ========================
+# PyInstaller
+# ========================
+*.exe
+*.dll
+*.so
+*.dylib
+
+# ========================
+# Others
+# ========================
+.idea/
+*.swp
+*.swo
