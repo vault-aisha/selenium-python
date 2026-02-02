@@ -11,7 +11,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      # 1️⃣ Checkout repo
+      # 1️⃣ Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
@@ -28,12 +28,16 @@ jobs:
           pip install -r requirements.txt
           pip install allure-pytest webdriver-manager pytest-xdist
 
-      # 4️⃣ Install Allure CLI
-      - name: Install Allure CLI
+      # 4️⃣ Install Scoop & Allure CLI
+      - name: Install Scoop and Allure CLI
+        shell: powershell
         run: |
-          choco install allure -y
+          Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+          iwr -useb get.scoop.sh | iex
+          scoop bucket add extras
+          scoop install allure
 
-      # 5️⃣ Run Selenium tests (headless)
+      # 5️⃣ Run Selenium tests
       - name: Run tests
         run: |
           pytest -n auto --alluredir=reports/allure-results --html=reports/html-report.html --self-contained-html
